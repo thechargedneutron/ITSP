@@ -14,12 +14,12 @@ The horizontal rows of each layer are shorted, being the positive terminal for t
 As an example, if we want to brighten up an LED at position (1,1,1), i.e. at one of the vertex of cube and the rest being off, we will give high potential to Mosfet of layer 1 for short time (say *x*). During this *x* time unit, we shift data through the shift register to give potential to the negative terminal. The working of Shift Registers is explained later. The data that we pass through the Mosfet is all highs except a low. Since the postive as well as the negative terminals of all LEDs except one, of layer 1, is at high. So all the LEDs of layer 1 will be off except for one. The clock frequency of Shift Register is much higher than inverse of *x*, i.e. the shifting of data takes place much much faster than the duration for which the layer is given high potential. </br>
 From layer 2 onwards, the data passed is always high. As the two terminals have the same potential, no LED of that layer should glow. This goes on in a loop, i.e. after layer 8, layer 1 is again given high voltage and the data corresponding to layer 1 is shifted at a very fast rate. </br>
 
-#Working of Shift Register
+# Working of Shift Register
 
 Shift Register can be used to get multiple output from a single data pin, clock pin and latch pin, thus enabling us to use it in our benefit. The datasheet of the Shift Register 74HC595 is here. We use eight Shift Registers in series so that it gives us 64 outputs using only 3 pins, the data pin, clock pin and latch pin. The pin number ( ) of one Shift Register is connected to the data pin of the next Shift Register. The clock and the latch pins are common to all the Shift Registers. </br>
 An interesting thing to observe is that if we want the first LED of a layer to be on, we have to pass 63 highs, and the last one should be low, since the first part of data goes to the last Shift Register and the last part of data goes to the first Shift Register. As a simple analogy, when a snake enters a hole, the head reaches the end of it while the tail is still at the entrance. </br>
 
-#Working of Mosfet (and transistor as a Switch)
+# Working of Mosfet (and transistor as a Switch)
 The schematic connection is shown here. The Mosfet has three pin, the gate, the source and the drain. </br>
 INCOMPLETE
 
