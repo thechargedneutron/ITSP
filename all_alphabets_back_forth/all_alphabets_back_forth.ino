@@ -1,6 +1,6 @@
 
 // Working of All alphabets..
-int speed_cube=6;
+int speed_cube=4;
 int latchPin=13;
 int count=0;
 int level=0;
@@ -172,7 +172,8 @@ void loop() {
       }
     }
   }
-  level=7-((int(count/(speed_cube)))%8);
+  int y=int(count/(8*speed_cube))%2;
+  level=7*y + pow(-1,y)*((int(count/(speed_cube)))%8);
   for(int m=0;m<8;m++){
     digitalWrite(latchPin,LOW);
     controlmosfet(m);
@@ -180,8 +181,7 @@ void loop() {
     delay(1);
     digitalWrite(latchPin,HIGH);
   }
-  
-  
+    
   count=count+1;
   // put your main code here, to run repeatedly:
 
